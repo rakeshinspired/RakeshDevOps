@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rocky — Resume & Portfolio</title>
+  <meta name="description" content="Rocky — Software Engineer & Intraday Trader. Modern dark glassmorphism resume." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-1: #061124; /* deep midnight */
+      --bg-2: linear-gradient(180deg,#071428 0%, #041021 100%);
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --accent: #5ee7ff;
+      --accent-2: #7c3aed;
+      --muted: #9fb0c6;
+      --text: #e8f4ff;
+      --radius: 14px;
+      --max-width: 1100px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;padding:32px;display:flex;align-items:center;justify-content:center;
+      background:var(--bg-2);color:var(--text);-webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      min-height:100vh;
+    }
+
+    .wrap{width:100%;max-width:var(--max-width)}
+
+    /* top card */
+    .hero{
+      display:grid;grid-template-columns: 1fr 360px;gap:20px;margin-bottom:20px;
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.04);
+      backdrop-filter: blur(10px) saturate(120%);
+      -webkit-backdrop-filter: blur(10px) saturate(120%);
+      border-radius:var(--radius);padding:20px;box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+    }
+
+    .profile{
+      display:flex;gap:16px;align-items:center;
+    }
+    .avatar{width:94px;height:94px;border-radius:14px;object-fit:cover;border:1px solid rgba(255,255,255,0.06)}
+
+    h1{margin:0;font-size:1.6rem;letter-spacing:0.2px}
+    .role{color:var(--muted);margin-top:6px}
+
+    .left .headline{display:flex;justify-content:space-between;align-items:start}
+
+    .actions{display:flex;gap:10px;margin-top:12px}
+    .btn{
+      padding:10px 14px;border-radius:10px;font-weight:700;border:0;cursor:pointer;letter-spacing:0.2px
+    }
+    .btn-primary{background: linear-gradient(90deg,var(--accent), var(--accent-2));color:#022;}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+
+    .meta{margin-top:12px;color:var(--muted);font-size:14px}
+
+    /* right column */
+    .contact-card{display:flex;flex-direction:column;gap:10px}
+    .contact-item{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+    .contact-item small{color:var(--muted)}
+
+    /* main grid */
+    .grid{
+      display:grid;grid-template-columns: 1fr 360px;gap:20px;
+    }
+
+    .section h2{margin:0 0 10px 0;font-size:1.05rem}
+    .section p, .section li{color:var(--muted)}
+
+    .experience{display:flex;flex-direction:column;gap:12px}
+    .role-card{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005))}
+    .role-card h3{margin:0}
+    .role-meta{color:var(--muted);font-size:13px;margin-top:6px}
+    .tags{margin-top:10px}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--muted);font-weight:600;margin-right:8px;margin-top:6px}
+
+    /* projects and skills */
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{padding:8px 10px;border-radius:8px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02);color:var(--muted)}
+
+    /* QR and footer */
+    .qr-wrap{display:flex;gap:12px;align-items:center}
+    .qr{width:110px;height:110px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.03)}
+    .qr img{width:86px;height:86px;object-fit:contain}
+    .foot small{color:var(--muted)}
+
+    /* subtle animated accent line */
+    .accent-line{height:6px;border-radius:999px;background:linear-gradient(90deg, rgba(94,231,255,0.2), rgba(124,58,237,0.2));box-shadow:0 6px 18px rgba(92,231,255,0.04)}
+
+    /* responsive */
+    @media (max-width:980px){.hero, .grid{grid-template-columns:1fr} .contact-card{flex-direction:row;flex-wrap:wrap}.contact-item{flex:1 1 48%}}
+    @media (max-width:520px){body{padding:18px} .avatar{width:72px;height:72px}}
+
+    /* print rules */
+    @media print{body{background:white;color:black} .btn, .contact-item, .qr {display:none} .card{box-shadow:none;border:none;background:transparent} a::after{content: " (" attr(href) ")"}}
+
+    /* small utilities */
+    .muted{color:var(--muted)}
+    .flex{display:flex;align-items:center;gap:10px}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Top hero -->
+    <div class="hero">
+      <div class="card left">
+        <div class="profile">
+          <img class="avatar" src="assets/profile.jpg" alt="Rocky Profile" onerror="this.style.display='none'"/>
+          <div>
+            <h1>Rocky <span style="font-weight:600;color:var(--muted);font-size:14px">— Software Engineer & Intraday Trader</span></h1>
+            <div class="role">Building reliable systems by day, systematic option strategies by market hours.</div>
+
+            <div class="actions">
+              <a class="btn btn-primary" href="resume.pdf" download="Rocky_Resume.pdf">Download PDF</a>
+              <button class="btn btn-ghost" id="printBtn">Save as PDF</button>
+            </div>
+
+            <div class="meta">Based in India · Open to remote roles · Available for interviews</div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px" class="accent-line"></div>
+
+        <div class="section" style="margin-top:16px">
+          <h2>Summary</h2>
+          <p>Experienced full-stack engineer with a strong background in real-time systems, automation, and trading tools. I blend engineering rigor with quantitative trading experience to build production-grade trading stacks and tooling.</p>
+        </div>
+
+        <div class="section" style="margin-top:14px">
+          <h2>Experience</h2>
+          <div class="experience">
+            <div class="role-card">
+              <h3>Senior Software Engineer — Acme Tech</h3>
+              <div class="role-meta">2021 — Present · Cloud microservices · Real-time pipelines</div>
+              <ul style="margin:8px 0 0 16px;color:var(--muted)">
+                <li>Designed event-driven architecture for market-data ingestion (millisecond latency).</li>
+                <li>Built CI/CD automation and cost-optimized serverless components.</li>
+              </ul>
+              <div class="tags"><span class="tag">Node.js</span><span class="tag">AWS</span><span class="tag">Docker</span></div>
+            </div>
+
+            <div class="role-card">
+              <h3>Software Engineer — Beta Labs</h3>
+              <div class="role-meta">2018 — 2021 · Full-stack web apps</div>
+              <ul style="margin:8px 0 0 16px;color:var(--muted)">
+                <li>Delivered customer-facing analytics dashboards used by 100k+ users.</li>
+              </ul>
+              <div class="tags"><span class="tag">React</span><span class="tag">Postgres</span><span class="tag">Kubernetes</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" style="margin-top:14px">
+          <h2>Selected Projects</h2>
+          <div class="role-card">
+            <h3>Options Scanning Engine</h3>
+            <div class="role-meta">Python · Pandas · Trading APIs</div>
+            <p class="muted" style="margin-top:8px">Automated option-chain scanner with probability filters and alerting; reduced false signals by ~40%.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="card contact-card">
+        <div class="contact-item">
+          <div>
+            <strong>Contact</strong>
+            <div class="muted" style="font-size:13px">rocky@example.com</div>
+          </div>
+          <div><small class="muted">Email</small></div>
+        </div>
+
+        <div class="contact-item">
+          <div>
+            <strong>Phone</strong>
+            <div class="muted" style="font-size:13px">+91 12345 67890</div>
+          </div>
+          <div><small class="muted">Mobile</small></div>
+        </div>
+
+        <div class="contact-item">
+          <div>
+            <strong>LinkedIn</strong>
+            <div class="muted" style="font-size:13px"><a href="https://linkedin.com/in/rocky" target="_blank" rel="noopener" style="color:var(--accent)">linkedin.com/in/rocky</a></div>
+          </div>
+          <div><small class="muted">Profile</small></div>
+        </div>
+
+        <div class="contact-item">
+          <div>
+            <strong>Location</strong>
+            <div class="muted" style="font-size:13px">India (IST)</div>
+          </div>
+          <div><small class="muted">Timezone</small></div>
+        </div>
+
+        <div style="margin-top:8px;">
+          <div class="section">
+            <h2>Skills</h2>
+            <div class="skills">
+              <span class="skill">JavaScript</span>
+              <span class="skill">React</span>
+              <span class="skill">Node.js</span>
+              <span class="skill">Python</span>
+              <span class="skill">AWS</span>
+              <span class="skill">Docker</span>
+              <span class="skill">Trading APIs</span>
+            </div>
+          </div>
+
+          <div style="margin-top:12px" class="section">
+            <h2>QR</h2>
+            <div class="qr-wrap">
+              <div class="qr"><img src="assets/qr-placeholder.png" alt="QR" onerror="this.style.display='none'"></div>
+              <div class="foot"><small>Scan to view this resume online<br/><strong style="color:var(--accent)">https://yourname.github.io/resume</strong></small></div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px" class="section">
+            <h2>Download</h2>
+            <p class="muted" style="font-size:13px">Click to download a printer-friendly PDF.</p>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <a class="btn btn-primary" href="resume.pdf" download="Rocky_Resume.pdf">Download PDF</a>
+              <button class="btn btn-ghost" id="printBtn2">Print / Save</button>
+            </div>
+          </div>
+
+        </div>
+
+      </aside>
+    </div>
+
+    <!-- lower grid -->
+    <div class="grid">
+      <div class="card">
+        <div class="section">
+          <h2>Education</h2>
+          <p class="muted">B.E. in Computer Science — Example University</p>
+        </div>
+
+        <div class="section" style="margin-top:14px">
+          <h2>Achievements</h2>
+          <ul style="color:var(--muted)">
+            <li>Reduced pipeline costs by 30% through optimized serverless architecture.</li>
+            <li>Built an option-scanning engine used by a small group of traders for intraday signals.</li>
+          </ul>
+        </div>
+
+        <div class="section" style="margin-top:14px">
+          <h2>Interests</h2>
+          <p class="muted">Algorithmic trading, low-latency systems, mentoring junior engineers, cycling.</p>
+        </div>
+
+      </div>
+
+      <aside class="card">
+        <div class="section">
+          <h2>Quick Links</h2>
+          <ul style="color:var(--muted);margin:0;padding-left:16px">
+            <li><a href="#projects" style="color:var(--accent)">Project portfolio</a></li>
+            <li><a href="#" style="color:var(--accent)">Public GitHub</a></li>
+            <li><a href="#" style="color:var(--accent)">Research / Papers</a></li>
+          </ul>
+        </div>
+
+        <div class="section" style="margin-top:12px">
+          <h2>Last updated</h2>
+          <p id="updatedDate" class="muted"></p>
+        </div>
+
+      </aside>
+    </div>
+
+  </div>
+
+  <script>
+    // Print buttons
+    document.getElementById('printBtn')?.addEventListener('click', () => window.print());
+    document.getElementById('printBtn2')?.addEventListener('click', () => window.print());
+
+    // Updated date
+    document.getElementById('updatedDate').textContent = new Date().toLocaleDateString('en-IN');
+
+    // Accessibility: allow download via keyboard
+    document.querySelectorAll('.btn').forEach(b => { b.setAttribute('tabindex', '0') });
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rocky — Resume</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Rocky — Software Engineer & Trader. Resume / Portfolio." />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <div class="intro">
+        <img src="assets/profile.jpg" alt="Rocky" class="avatar" onerror="this.style.display='none'"/>
+        <div>
+          <h1>Rocky</h1>
+          <p class="sub">Software Engineer • Intraday Trader</p>
+          <p class="contact">
+            <a href="mailto:rocky@example.com">rocky@example.com</a> ·
+            <a href="tel:+911234567890">+91 12345 67890</a> ·
+            <a href="https://linkedin.com/in/rocky" target="_blank" rel="noopener">LinkedIn</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <!-- Direct PDF file download: place resume.pdf in same folder -->
+        <a class="btn" id="downloadPdf" href="resume.pdf" download="Rocky_Resume.pdf">Download PDF</a>
+
+        <!-- Fallback: print to PDF -->
+        <button class="btn outline" id="printBtn">Save as PDF</button>
+      </div>
+    </header>
+
+    <section class="summary card">
+      <h2>Summary</h2>
+      <p>Problem-solving software engineer with extensive experience building scalable systems. Active intraday trader specializing in Sensex options — combines quantitative analysis with engineering to build trading tools and actionable market insights.</p>
+    </section>
+
+    <section class="details grid">
+      <div class="card">
+        <h3>Experience</h3>
+        <article class="item">
+          <h4>Senior Software Engineer — Acme Tech</h4>
+          <p class="when">2021 — Present</p>
+          <ul>
+            <li>Designed and implemented microservices for real-time data pipelines.</li>
+            <li>Built automation for CI/CD and cloud deployments.</li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <h4>Software Engineer — Beta Labs</h4>
+          <p class="when">2018 — 2021</p>
+          <ul>
+            <li>Full-stack development of web applications used by 100k+ users.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="card">
+        <h3>Trading & Projects</h3>
+        <ul>
+          <li>Intraday Sensex Options strategy automation (Python + Trading APIs).</li>
+          <li>Trading assistant web app — real-time option chain viewer + alerts.</li>
+        </ul>
+
+        <h3>Skills</h3>
+        <p class="badges">
+          <span>JavaScript</span><span>React</span><span>Node.js</span>
+          <span>Python</span><span>Docker</span><span>AWS</span><span>Trading APIs</span>
+        </p>
+
+        <h3>Education</h3>
+        <p>B.E. in Computer Science — Example University</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Selected Achievements</h3>
+      <ul>
+        <li>Reduced pipeline costs by 30% using optimized serverless functions.</li>
+        <li>Built an option-scanning engine that reduced false signals by 40%.</li>
+      </ul>
+    </section>
+
+    <footer class="footer card">
+      <div class="qr">
+        <!-- Replace qr-placeholder.png with QR image that points to your site URL -->
+        <img src="assets/qr-placeholder.png" alt="QR to resume page" onerror="this.style.display='none'"/>
+        <p>Scan to open this resume</p>
+      </div>
+
+      <div class="small-print">
+        <p>Last updated: <span id="updatedDate"></span></p>
+        <p><a href="https://github.com/yourname" target="_blank" rel="noopener">github.com/yourname</a> · <a href="#">Download vCard</a></p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Print (browser's Save as PDF)
+    document.getElementById('printBtn').addEventListener('click', function() {
+      window.print();
+    });
+
+    // Show today's date in footer
+    document.getElementById('updatedDate').textContent = new Date().toLocaleDateString('en-IN');
+  </script>
+</body>
+</html>
