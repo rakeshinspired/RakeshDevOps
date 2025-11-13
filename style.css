@@ -13,17 +13,17 @@
 html,body{height:100%}
 body{
   margin:0;
-  background:linear-gradient(180deg,#071025 0%, #081428 100%);
+  padding:32px;
+  display:flex;
+  align-items:flex-start;   /* <-- changed from center to flex-start */
+  justify-content:center;
+  background:var(--bg-2);
   color:var(--text);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-  padding:20px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:15px;
-  line-height:1.45;
+  min-height:100vh;
 }
+
 
 .container{
   width:100%;
@@ -94,3 +94,4 @@ h1{margin:0;font-size:1.5rem}
   .btn, .actions {display:none}
   a::after{content: " (" attr(href) ")"}
 }
+
